@@ -125,10 +125,12 @@ if __name__ == "__main__":
     
     ofov_scale = 1.0 / max(np.percentile(ofov_xyzs, 99, axis=0) - np.percentile(ofov_xyzs, 1, axis=0))
     ofov_xyzs = ofov_xyzs * ofov_scale
+    cameras = cameras * ofov_scale
 
     ofov_center = ofov_xyzs.mean(axis=0)
     ofov_translate =  np.array([0.5, 0.5, 0.5]) - ofov_center
     ofov_xyzs += ofov_translate
+    cameras += ofov_translate
 
     print("Result:", ofov_scale, ofov_translate)
 
