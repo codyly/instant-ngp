@@ -102,6 +102,7 @@ if __name__ == "__main__":
 
 	testbed = ngp.Testbed(mode)
 	testbed.nerf.sharpen = float(args.sharpen)
+	testbed.render_aabb = ngp.BoundingBox([0.0, 0.0, 0.0], [1.0, 1.0, 1.0])
 
 	if args.mode == "sdf":
 		testbed.tonemap_curve = ngp.TonemapCurve.ACES
